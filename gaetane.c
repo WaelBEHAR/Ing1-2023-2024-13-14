@@ -1,17 +1,14 @@
-//
-// Created by Macbook on 31/10/2023.
-//
 #include <stdio.h>
 
 int main() {
     int Choix;
-    printf("sélectionnez un des choix ci-dessous \n");
+    printf("selectionnez un des choix ci-dessous \n");
 
-    printf("\t1.  Règles du jeu (affichées à l'écran)\n\t2.  Lancer un nouveau jeu à partir du niveau 1\n\t3.  Charger une partie\n\t4.  Mot de Passe\n\t5.  Scores\n\t6.  Quitter\n");
+    printf("\t1.  Regles du jeu (affichees a l'ecran)\n\t2.  Lancer un nouveau jeu a partir du niveau 1\n\t3.  Charger une partie\n\t4.  Mot de Passe\n\t5.  Scores\n\t6.  Quitter\n");
     scanf("%d",&Choix);
 
     if (Choix == 1 ){
-        printf("Règles du jeu:\nChaque niveau devra être résolu en moins de 120 secondes.\nSi le temps est écoulé, le joueur perd une vie et recommence le niveau.\nLe but est de récupérer les 4 oiseaux du niveau sans se faire toucher par la balle et/ou les ennemis (si présents).\n");
+        printf("Regles du jeu:\nChaque niveau devra être resolu en moins de 120 secondes.\nSi le temps est ecoule, le joueur perd une vie et recommence le niveau.\nLe but est de recuperer les 4 oiseaux du niveau sans se faire toucher par la balle et/ou les ennemis (si presents).\n");
     }
     if (Choix == 2){
         printf("lancement du jeu a partir du niveaux 1");
@@ -30,8 +27,8 @@ int main() {
 
     }
     if(Choix > 6){
-        printf("erreur de saisie sélectionnez à nouveau\n");
-        printf("\t1.  Règles du jeu (affichées à l'écran)\n\t2.  Lancer un nouveau jeu à partir du niveau 1\n\t3.  Charger une partie\n\t4.  Mot de Passe\n\t5.  Scores\n\t6.  Quitter\n");
+        printf("erreur de saisie selectionnez a nouveau\n");
+        printf("\t1.  Regles du jeu (affichees a l'ecran)\n\t2.  Lancer un nouveau jeu a partir du niveau 1\n\t3.  Charger une partie\n\t4.  Mot de Passe\n\t5.  Scores\n\t6.  Quitter\n");
         scanf("%d",&Choix);
     }
 
