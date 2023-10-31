@@ -8,7 +8,7 @@ int main() {
     scanf("%d",&Choix);
 
     if (Choix == 1 ){
-        printf("Regles du jeu:\nChaque niveau devra être resolu en moins de 120 secondes.\nSi le temps est ecoule, le joueur perd une vie et recommence le niveau.\nLe but est de recuperer les 4 oiseaux du niveau sans se faire toucher par la balle et/ou les ennemis (si presents).\n");
+        printf("Regles du jeu:\nChaque niveau devra etre resolu en moins de 120 secondes.\nSi le temps est ecoule, le joueur perd une vie et recommence le niveau.\nLe but est de recuperer les 4 oiseaux du niveau sans se faire toucher par la balle et/ou les ennemis (si presents).\n");
     }
     if (Choix == 2){
         printf("lancement du jeu a partir du niveaux 1");
