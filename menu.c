@@ -27,7 +27,7 @@ int main() {
 
     }
     if(Choix > 6){
-        printf("erreur de saisie selectionnez a nouveau\n");
+        printf("erreur de saisie, selectionnez a nouveau\n");
         printf("\t1.  Regles du jeu (affichees a l'ecran)\n\t2.  Lancer un nouveau jeu a partir du niveau 1\n\t3.  Charger une partie\n\t4.  Mot de Passe\n\t5.  Scores\n\t6.  Quitter\n");
         scanf("%d",&Choix);
     }
