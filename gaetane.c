@@ -1,4 +1,3 @@
-#include <conio.h>
 #include <stdio.h>
 
 int main() {
@@ -6,7 +5,7 @@ int main() {
     int col = 10; // Position initiale de la colonne pour le point
 
     while (1) {
-        system("cls"); // Efface l'écran (Windows-specific)
+        printf("\033[H\033[J"); // Efface l'écran (peut ne pas fonctionner sur tous les systèmes)
 
         // Affiche la matrice avec le point à la position actuelle
         for (int i = 0; i < 10; i++) {
@@ -20,26 +19,28 @@ int main() {
             printf("\n");
         }
 
-        int ch = _getch(); // Attend l'entrée de l'utilisateur
+        int ch = getchar(); // Attend l'entrée de l'utilisateur
 
         // Déplacement en fonction de la touche appuyée
-        switch (ch) {
-            case 72: // Flèche du haut
-                if (row > 0) row--;
-                break;
-            case 80: // Flèche du bas
-                if (row < 9) row++;
-                break;
-            case 75: // Flèche de gauche
-                if (col > 0) col--;
-                break;
-            case 77: // Flèche de droite
-                if (col < 19) col++;
-                break;
-            case 'q':
-                return 0; // Quitte le programme si 'q' est pressé
-            default:
-                break;
+        if (ch == 27) { // Vérifie si une séquence d'échappement est en cours
+            getchar(); // Ignore le caractère '['
+            ch = getchar(); // Lit le code de la touche
+            switch (ch) {
+                case 'A': // Flèche du haut
+                    if (row > 0) row--;
+                    break;
+                case 'B': // Flèche du bas
+                    if (row < 9) row++;
+                    break;
+                case 'C': // Flèche de droite
+                    if (col < 19) col++;
+                    break;
+                case 'D': // Flèche de gauche
+                    if (col > 0) col--;
+                    break;
+            }
+        } else if (ch == 'q') {
+            break; // Quitte le programme si 'q' est pressé
         }
     }
 
