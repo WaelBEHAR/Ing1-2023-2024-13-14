@@ -1,109 +1,159 @@
-#include <ncurses.h>
+#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+#include <conio.h>
+#include <time.h>
+
+int lignes = 12;
+int colonnes = 22;
+int matrix[12][22];
+
+int playerX = 10;
+int playerY = 6;
+int Xoiseau1 = 1, Yoiseau1 = 1;
+int Xoiseau2 = 20, Yoiseau2 = 1;
+int Xoiseau3 = 1, Yoiseau3 = 10;
+int Xoiseau4 = 20, Yoiseau4 = 10;
+int Noiseau = 0;
+int gameTime = 120;  // Temps total de jeu en secondes
+
+void initializeGrid() {
+    for (int i = 0; i < lignes; i++) {
+        for (int j = 0; j < colonnes; j++) {
+            if (i == 0 || i == lignes - 1 || j == 0 || j == colonnes - 1) {
+                matrix[i][j] = '*';
+            } else if (i == playerY && j == playerX){
+                matrix[i][j] = 8;
+            } else if (i == Yoiseau1 && j == Xoiseau1){
+                matrix[i][j] = 9;
+            } else if (i == Yoiseau2 && j == Xoiseau2){
+                matrix[i][j] = 9;
+            } else if (i == Yoiseau3 && j == Xoiseau3){
+                matrix[i][j] = 9;
+            } else if (i == Yoiseau4 && j == Xoiseau4){
+                matrix[i][j] = 9;
+            } else {
+                matrix[i][j] = 0 ;
+            }
+        }
+    }
+}
+
+void drawGrid(int remainingTime) {
+    for (int i = 0; i < lignes; i++) {
+        for (int j = 0; j < colonnes; j++) {
+            if (matrix[i][j] == 0){
+                printf(" ");
+            } else if (matrix[i][j] == 1){
+
+            } else if (matrix[i][j] == 2){
+
+            } else if (matrix[i][j] == 3){
+
+            } else if (matrix[i][j] == 4){
+
+            } else if (matrix[i][j] == 5){
+
+            } else if (matrix[i][j] == 6){
+
+            } else if (matrix[i][j] == 7){
+                printf("o");
+            } else if (matrix[i][j] == 8){
+                printf("+");
+            } else if (matrix[i][j] == 9){
+                printf("%c", 0x4);
+            } else {
+                printf("%c", matrix[i][j]);
+            }
+        }
+        printf("\n");
+    }
+    printf("Time remaining: %d seconds\n", remainingTime);
+}
+
+void initializeGame() {
+    initializeGrid();
+}
+
+int isTimeUp(time_t startTime) {
+    time_t currentTime = time(NULL);
+    int elapsedSeconds = (int)difftime(currentTime, startTime);
+    return elapsedSeconds >= gameTime;
+}
 
 int main() {
-    initscr();  // Initialise la bibliothèque ncurses
-    raw();      // Désactive la mise en mémoire tampon de ligne
-    keypad(stdscr, TRUE); // Active les touches spéciales (comme les flèches)
-    noecho();   // Désactive l'affichage des caractères saisis
-
-    int m[10][20];
-    int haut = 5; // Position initiale de la ligne pour le point 'S' (au milieu)
-    int bas = 10; // Position initiale de la colonne pour le point 'S' (au milieu)
-
-    // Initialiser la matrice avec des zéros
-    for (int plateau = 0; plateau < 10; plateau++) {
-        for (int wael = 0; wael < 20; wael++) {
-            m[plateau][wael] = 0;
-        }
-    }
-
-    // Mettre le chiffre 9 aux coins de la matrice
-    m[0][0] = 9;
-    m[0][19] = 9;
-    m[9][0] = 9;
-    m[9][19] = 9;
-    m[0][2] = 4;
-    m[1][2] = 4;
-    m[2][2] = 4;
-    m[3][2] = 1;
-    m[4][2] = 4;
-    m[5][2] = 4;
-    m[6][2] = 3;
-    m[7][2] = 2;
-    m[8][2] = 1;
-    m[9][2] = 4;
-    m[0][17] = 4;
-    m[1][17] = 4;
-    m[2][17] = 4;
-    m[3][17] = 4;
-    m[4][17] = 1;
-    m[5][17] = 3;
-    m[6][17] = 4;
-    m[7][17] = 4;
-    m[8][17] = 4;
-    m[9][17] = 4;
-
-    int ch;
-
-    // Demander à l'utilisateur s'il veut jouer
-    printw("Voulez-vous jouer? (oui/non) ");
-    char reponse[10];
-    refresh();
-    getstr(reponse);
-
-    if (strcmp(reponse, "oui") == 0) {
-        // Si l'utilisateur répond "oui", placez le point 'S' au milieu
-        haut = 5;
-        bas = 10;
-    } else {
-        endwin(); // Termine l'utilisation de ncurses
-        return 0;
-    }
+    initializeGame();
+    time_t startTime = time(NULL);  // Enregistrez l'heure de début du jeu
 
     while (1) {
-        clear(); // Efface l'écran
+        system("cls");
 
-        // Affiche la matrice avec le point à la position actuelle
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 20; j++) {
-                if (i == haut && j == bas) {
-                    printw("S "); // Affiche le point ('S')
-                } else if (m[i][j] == 9) {
-                    printw("9 "); // Affiche le chiffre 9
-                } else {
-                    printw(". "); // Affiche un point
-                }
-            }
-            printw("\n");
+        int remainingTime = gameTime - (int)difftime(time(NULL), startTime);
+        if (remainingTime < 0) {
+            remainingTime = 0;
         }
 
-        refresh(); // Rafraîchit l'écran
+        drawGrid(remainingTime);
 
-        ch = getch(); // Attend l'entrée de l'utilisateur
+        char move = _getch();
 
-        // Déplacement en fonction de la touche appuyée
-        switch (ch) {
-            case KEY_UP:
-                if (haut > 0) haut--;
+        switch (move) {
+            case 'z':
+                if (playerY > 1) {
+                    matrix[playerY][playerX] = 0;
+                    playerY--;
+                    matrix[playerY][playerX] = 8;
+                }
                 break;
-            case KEY_DOWN:
-                if (haut < 9) haut++;
-                break;
-            case KEY_LEFT:
-                if (bas > 0) bas--;
-                break;
-            case KEY_RIGHT:
-                if (bas < 19) bas++;
+            case 's':
+                if (playerY < lignes - 2) {
+                    matrix[playerY][playerX] = 0;
+                    playerY++;
+                    matrix[playerY][playerX] = 8;
+                }
                 break;
             case 'q':
-                endwin(); // Termine l'utilisation de ncurses
-                return 0;
-            default:
+                if (playerX > 1) {
+                    matrix[playerY][playerX] = 0;
+                    playerX--;
+                    matrix[playerY][playerX] = 8;
+                }
                 break;
+            case 'd':
+                if (playerX < colonnes - 2) {
+                    matrix[playerY][playerX] = 0;
+                    playerX++;
+                    matrix[playerY][playerX] = 8;
+                }
+                break;
+            case 'a':
+                return 0;
+        }
+
+        if (playerX == Xoiseau1 && playerY == Yoiseau1) {
+            Noiseau++;
+            Xoiseau1 = -1;  // Oiseau collecté, le déplacer hors de l'écran
+        } else if (playerX == Xoiseau2 && playerY == Yoiseau2) {
+            Noiseau++;
+            Xoiseau2 = -1;
+        } else if (playerX == Xoiseau3 && playerY == Yoiseau3) {
+            Noiseau++;
+            Xoiseau3 = -1;
+        } else if (playerX == Xoiseau4 && playerY == Yoiseau4) {
+            Noiseau++;
+            Xoiseau4 = -1;
+        }
+
+        if (Noiseau == 4) {
+            system("cls");
+            printf("Félicitations ! Vous avez collecté tous les objets. Vous avez gagné !\n");
+            break;
+        }
+
+        if (isTimeUp(startTime)) {
+            system("cls");
+            printf("Temps écoulé. Game over.\n");
+            break;
         }
     }
-
-    return 0 ;
+    return 0;
 }
