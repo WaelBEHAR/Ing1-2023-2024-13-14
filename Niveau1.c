@@ -40,7 +40,7 @@ int Noiseau = 0;
 int gameTime = 120 ;  // Temps total de jeu en secondes
 
 void initializeGrid() {
-    for (int i = 0; i < lignes; i++) {
+    for (int i = 0; i < lignes; i++) {      
         for (int j = 0; j < colonnes; j++) {
             if (i == 0 || i == lignes - 1 || j == 0 || j == colonnes - 1) {
                 matrix[i][j] = '*';
@@ -277,6 +277,12 @@ int main() {
            }
        }
 
+        char end = _getch();
+        switch (end) {
+            case 'i':
+                return 0;
+        }
+
 
 
             while (gameTime > 0) {
@@ -291,12 +297,18 @@ int main() {
                     }
                 }
             }
+            
+            
+
+
+
 
             return 0;
         }
+    
 
 
-        return 0;
+         return 0;
         }
 
 
