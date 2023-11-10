@@ -55,9 +55,9 @@ int main() {
 
         printf(ANSI_COLOR_CYAN "Menu du Jeu\n");
 
-        printf("1. Règles du jeu\n");
+        printf("1. Regles du jeu\n");
 
-        printf("2. Lancer un nouveau jeu à partir du niveau 1\n");
+        printf("2. Lancer un nouveau jeu a partir du niveau 1\n");
 
         printf("3. Charger une partie\n");
 
