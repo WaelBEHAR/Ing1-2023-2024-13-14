@@ -11,10 +11,11 @@
 
 int main() {
     int menu;
-    char mot_de_passse[90];
+    char mot_de_passse[20];
     int lignes = 12;
     int colonnes = 22;
     int plateau[12][22];
+
     int oiseau = 9;
     int PersoX = 10;
     int PersoY = 6;
@@ -88,7 +89,7 @@ int main() {
 
             case 2:
 
-                // on cree le plateau
+                // Initialisation de la grille
                 for (int i = 0; i < lignes; i++) {
                     for (int j = 0; j < colonnes; j++) {
                         if (i == 0 || i == lignes - 1 || j == 0 || j == colonnes - 1) {
@@ -153,13 +154,13 @@ int main() {
                     }
                 }
 
-                // creation du timer 
+                // Initialisation du minuteur
                 start_time = time(NULL);
 
                 while (vie != 0 && temps > 0) {
                     system("cls");
 
-                    // on affiche le plateau
+                    // Affichage de la grille
                     for (int i = 0; i < lignes; i++) {
                         for (int j = 0; j < colonnes; j++) {
                             if (plateau[i][j] == 0) {
@@ -189,7 +190,7 @@ int main() {
                         printf(ANSI_COLOR_RED "\n");
                     }
 
-                    // on affiche du temps restant
+                    // Affichage du temps restant
                     printf("Il reste %d secondes\n", temps);
 
                     char move = _getch();
