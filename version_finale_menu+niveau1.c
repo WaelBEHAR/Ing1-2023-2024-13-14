@@ -15,7 +15,6 @@ int main() {
     int lignes = 12;
     int colonnes = 22;
     int plateau[12][22];
-
     int oiseau = 9;
     int PersoX = 10;
     int PersoY = 6;
@@ -70,6 +69,7 @@ int main() {
         printf("Indiquez votre choix : ");
 
         scanf_s("%d", &menu);
+
         switch (menu) {
 
             case 1:
@@ -78,6 +78,7 @@ int main() {
                 printf(ANSI_COLOR_MAGENTA"Voici les regles du jeu :\n\n - L objectif est de sauver les quatre oiseaux aux quatre coins de l ecran,\n"
                        "pour cela, il faut que Snoopy les recupere en passant sur la case ou ils se situent\n"
                        " - Pour realiser cette mission, vous disposez de 120 secondes\n"
+                       " - Pour se deplacer il faut utiliser les touches Z,Q,S,D\n"
                        " - Vous devez egalement faire attention aux differents obstacles qui peuvent vous tuer:\n"
                        "   1- Une balle se deplace aleatoirement, et vous devez l eviter pour survivre\n"
                        "   2- %c est votre personnage\n"
@@ -95,49 +96,49 @@ int main() {
                         if (i == 0 || i == lignes - 1 || j == 0 || j == colonnes - 1) {
                             plateau[i][j] = '*';
                         } else if (i == block1 && j == casse1) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block2 && j == casse2) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block3 && j == casse3) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block4 && j == casse4) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block5 && j == casse5) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block6 && j == casse6) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block7 && j == casse7) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block8 && j == casse8) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block9 && j == casse9) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block10 && j == casse10) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block11 && j == casse11) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block12 && j == casse12) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block13 && j == casse13) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block14 && j == casse14) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block15 && j == casse15) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block16 && j == casse16) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block17 && j == casse17) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block18 && j == casse18) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block19 && j == casse19) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block20 && j == casse20) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block21 && j == casse21) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == block22 && j == casse22) {
-                            plateau[i][j] = 5;
+                            plateau[i][j] = 4;
                         } else if (i == PersoY && j == PersoX) {
                             plateau[i][j] = 8;
                         } else if (i == oiseauY1 && j == oiseauX1) {
@@ -172,9 +173,11 @@ int main() {
                             } else if (plateau[i][j] == 3) {
 
                             } else if (plateau[i][j] == 4) {
+                                printf("%c", 0x5);
+
 
                             } else if (plateau[i][j] == 5) {
-                                printf("%c", 0x5);
+
                             } else if (plateau[i][j] == 6) {
 
                             } else if (plateau[i][j] == 7) {
@@ -196,28 +199,28 @@ int main() {
                     char move = _getch();
                     switch (move) {
                         case 'z':
-                            if (PersoY > 1 & plateau[PersoY - 1][PersoX] != 5) {
+                            if (PersoY > 1 & plateau[PersoY - 1][PersoX] != 4) {
                                 plateau[PersoY][PersoX] = 0;
                                 PersoY--;
                                 plateau[PersoY][PersoX] = 8;
                             }
                             break;
                         case 's':
-                            if (PersoY < lignes - 2 & plateau[PersoY + 1][PersoX] != 5) {
+                            if (PersoY < lignes - 2 & plateau[PersoY + 1][PersoX] != 4) {
                                 plateau[PersoY][PersoX] = 0;
                                 PersoY++;
                                 plateau[PersoY][PersoX] = 8;
                             }
                             break;
                         case 'q':
-                            if (PersoX > 1 & plateau[PersoY][PersoX - 2] != 5) {
+                            if (PersoX > 1 & plateau[PersoY][PersoX - 2] != 4) {
                                 plateau[PersoY][PersoX] = 0;
                                 PersoX--;
                                 plateau[PersoY][PersoX] = 8;
                             }
                             break;
                         case 'd':
-                            if (PersoX < colonnes - 2 & plateau[PersoY][PersoX + 2] != 5) {
+                            if (PersoX < colonnes - 2 & plateau[PersoY][PersoX + 2] != 4) {
                                 plateau[PersoY][PersoX] = 0;
                                 PersoX++;
                                 plateau[PersoY][PersoX] = 8;
@@ -237,11 +240,14 @@ int main() {
                         Total_oiseau = Total_oiseau + 1;
                     }
                     if (Total_oiseau == 4) {
-                        system("cls");
+
                         printf("Felicitations ! Vous avez collecte tous les objets. Vous avez gagne !\n");
-                        sleep(5);
+                        sleep(3);
+                        system("cls");
+
                         printf("Lancement du prochain niveau\n");
-                        sleep(5);
+                        sleep(3);
+                        break;
                     }
 
                     // Mise à jour du minuteur
@@ -253,6 +259,7 @@ int main() {
                         system("cls");
                         printf("Temps ecoule. Nombre de vies restantes : %d.\n", vie);
                         sleep(5);
+
                     }
                 }
                 break;
@@ -292,7 +299,7 @@ int main() {
 
                 }
                 return 0;
-                break;
+
 
             case 5:
 
