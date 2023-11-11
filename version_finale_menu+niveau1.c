@@ -11,7 +11,6 @@
 
 int main() {
     int menu;
-    char mot_de_passse[20];
     int lignes = 12;
     int colonnes = 22;
     int plateau[12][22];
@@ -80,12 +79,12 @@ int main() {
                        " - Pour realiser cette mission, vous disposez de 120 secondes\n"
                        " - Pour se deplacer il faut utiliser les touches Z,Q,S,D\n"
                        " - Vous devez egalement faire attention aux differents obstacles qui peuvent vous tuer:\n"
-                       "   1- Une balle se deplace aleatoirement, et vous devez l eviter pour survivre\n"
+                       "   1- Une balle peut se deplacer aleatoirement, et vous devez l eviter pour survivre\n"
                        "   2- %c est votre personnage\n"
                        "   3- %c est un bloc incassable\n"
                        "   4- %c est un bloc piege ATTENTION!\n"
                        " - Vous disposez de 3 vies\n ", 0x1, 0x5, 0x6);
-                sleep(10);
+                sleep(15);
                 break;
 
             case 2:
@@ -239,7 +238,7 @@ int main() {
                     } else if (PersoX == oiseauX4 && PersoY == oiseauY4) {
                         Total_oiseau = Total_oiseau + 1;
                     }
-                    if (Total_oiseau == 4) {
+                    if (Total_oiseau == 5) {
 
                         printf("Felicitations ! Vous avez collecte tous les objets. Vous avez gagne !\n");
                         sleep(3);
@@ -273,47 +272,28 @@ int main() {
 
                 printf("Entrez le mot de passe : ");
 
-                scanf("%s", &mot_de_passse);
-
-                if (strcmp(mot_de_passse, "jeu1") == 0) {
-
-                    printf("Lancement du niveau 1:\n");
-
-                    // Code du niveau 1
-
-                } else if (strcmp(mot_de_passse, "jeu2") == 0) {
-
-                    printf("Lancement du niveau 2:\n");
-
-                    // Code du niveau 2
-
-                } else if (strcmp(mot_de_passse, "jeu3") == 0) {
-
-                    printf("Lancement du niveau 3:\n");
-
-                    // Code du niveau 3
-
-                } else {
-
-                    printf("Mot de passe incorrect, retour au menu");
-
-                }
-                return 0;
-
 
             case 5:
+                printf("votre score est ...");
 
-                printf("Afficher le score: \n");
+
+            case 6 :
+                printf("merci d avoir jouer a notre jeu\n");
+                sleep(3);
+                printf(ANSI_COLOR_RED"Les fondateurs sont Adam,Wael,Ines,Gaetane\n\t");
+                sleep(5);
                 break;
 
-            case 6:
 
-                printf("Fin du jeu.\n");
 
-                return 0;
+
+
+
+                // Code du niveau 3
+
 
         }
-    }
 
-    return 0;
+        return 0;
+    }
 }
