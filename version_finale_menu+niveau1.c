@@ -266,20 +266,25 @@ int main() {
             case 3:
 
                 printf("Chargement d une partie...\n");
+                sleep(5);
                 break;
 
             case 4:
 
                 printf("Entrez le mot de passe : ");
+                sleep(5);
+                break;
 
 
             case 5:
                 printf("votre score est ...");
+                sleep(5);
+                break;
 
 
             case 6 :
                 printf("merci d avoir jouer a notre jeu\n");
-                sleep(3);
+                sleep(2);
                 printf(ANSI_COLOR_RED"Les fondateurs sont Adam,Wael,Ines,Gaetane\n\t");
                 sleep(5);
                 break;
