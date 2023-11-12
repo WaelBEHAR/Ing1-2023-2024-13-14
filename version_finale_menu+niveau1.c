@@ -8,7 +8,7 @@
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_MAGENTA "\x1b[35m"
 #define ANSI_COLOR_CYAN    "\x1b[36m"
-
+nrhlkjhrzpoizu^rciuqz^pori$¨ZARICQ¨ZOITY¨VOQEUT¨PC,A$xîzaîrczpiUERHCäurcôztvsdvtqesvteyzeydhdfh dsfhdtyiyjzr tuvreyj br§ukryuketrhe qtcqergs hsfgncvbnvbxcbnxcnxncxnxcnnhqdyvsrhfbbhvhsvhsvhsvdhsdvsdvhsdhsvsvgfh dgkbf,nsrwdtrsgefsdfcsgvhbxjcnuv,i;ml,iknujbyehtvcgrefzdwedrftgyhjkllik§èuj(yetrdzsdsfgfghhj,lnkbuyntrexwzdexfcgvebjnu,iknuyb tvrcexwsdf'g(hykutre
 int main() {
     int menu;
     int lignes = 12;
