@@ -47,7 +47,7 @@ int main() {
     int Total_oiseau = 0, vie = 3;
     time_t start_time, current_time;  // Ajout de variables pour le minuteur
     int temps = 120;
-
+    
     while (1) {
         system("cls");
 
