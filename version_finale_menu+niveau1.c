@@ -10,7 +10,7 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 
 int main() {
-    int menu ;
+    int menu;
     int lignes = 12;
     int colonnes = 22;
     int plateau[12][22];
@@ -24,7 +24,7 @@ int main() {
     int block1 = 10, casse1 = 13;
     int block2 = 9, casse2 = 13;
     int block3 = 8, casse3 = 13;
-    int block4 = 7, casse4 = 13;
+    int block4 = 7, casse4 =13;
     int block5 = 6, casse5 = 13;
     int block6 = 1, casse6 = 17;
     int block7 = 2, casse7 = 17;
