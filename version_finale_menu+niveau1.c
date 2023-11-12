@@ -238,7 +238,7 @@ int main() {
                     } else if (PersoX == oiseauX4 && PersoY == oiseauY4) {
                         Total_oiseau = Total_oiseau + 1;
                     }
-                    if (Total_oiseau == 5) {
+                    if (Total_oiseau == 4) {
 
                         printf("Felicitations ! Vous avez collecte tous les objets. Vous avez gagne !\n");
                         sleep(3);
