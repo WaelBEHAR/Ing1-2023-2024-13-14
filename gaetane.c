@@ -3,7 +3,7 @@
 int main() {
     int m[10][20];
 
-    // Initialiser la matrice avec des zéros
+    // Initialiser la matrice avec   des zéros
     for (int plateau = 0; plateau < 10; plateau++) {
         for (int wael = 0; wael < 20; wael++) {
             m[plateau][wael] = 0;
