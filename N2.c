@@ -48,7 +48,8 @@ void N2(){
     int x = 0;
     int sauvegardeEnCours = 0;
     int Total_oiseau = 0, vie = 3;
-    time_t start_time, current_time;  // Ajout de variables pour le minuteur
+    time_t start_time, current_time , end_time;  // Ajout de variables pour le minuteur
+
     int temps = 30;
     for (int i = 0; i < lignes; i++) {
         for (int j = 0; j < colonnes; j++) {
@@ -242,11 +243,20 @@ void N2(){
                 } else {
                     printf("Une sauvegarde est déjà en cours.\n");
                 }
-                break;
-
-
-
+            case 'p':
+                printf("Le jeu est en pause.\n");
+                printf("Appuyez sur 'l' pour reprendre le jeu.\n");
+                while (1) {
+                    char resume = _getch();
+                    if (resume == 'p') {
+                        break;
+                    }
+                    break;
+                }
         }
+        // Mise à jour du minuteur
+        current_time = time(NULL);
+        temps = 30 - (int) (current_time - start_time);
 
         if (PersoX == oiseauX1 && PersoY == oiseauY1) {
             Total_oiseau = Total_oiseau + 1;
@@ -259,8 +269,14 @@ void N2(){
         }
         if (Total_oiseau == 5) {
 
+            end_time = time(NULL);
+            int temps_ecoule = (int)(end_time - start_time);
+            int score = (int)(temps * 100);
+
+            printf("vous avez mis %d secondes \n",temps_ecoule);
             printf("Felicitations ! Vous avez collecte tous les objets. Vous avez gagne !\n");
-            sleep(3);
+            printf("vous avez obtenue le score de %d\n",score  );
+            sleep(6);
             system("cls");
 
             printf("Lancement du prochain niveau\n");
@@ -268,9 +284,7 @@ void N2(){
             break;
         }
 
-        // Mise à jour du minuteur
-        current_time = time(NULL);
-        temps = 120 - (int) (current_time - start_time);
+
 
         if (temps <= 0) {
             vie = vie - 1;
