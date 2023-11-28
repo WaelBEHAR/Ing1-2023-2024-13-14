@@ -46,6 +46,42 @@ void N2(){
     int sauvegardeEnCours = 0;
     int Total_oiseau = 0, vie = 3;
     time_t start_time, current_time , end_time;  // Ajout de variables pour le minuteur
+ 
+    int ballX = 11;
+    int ballY = 3;
+    int ballDirectionX = 1;
+    int ballDirectionY = 1;
+    clock_t lastBallUpdate;
+
+// Inside the while loop, update the ball's position only if enough time has passed
+    clock_t current_time = clock();
+    double elapsed_time = ((double)(current_time - lastBallUpdate)) / CLOCKS_PER_SEC;
+
+    if (elapsed_time >= 0.2) { // Update the ball every 0.2 seconds (adjust as needed)
+        lastBallUpdate = current_time;
+
+        // Update the ball's position
+        ballX += ballDirectionX;
+        ballY += ballDirectionY;
+
+        // Check if the ball hits Snoopy
+        if (ballX == PersoX && ballY == PersoY) {
+            vie = 0; // End the game if the ball hits Snoopy
+            printf("Game Over! Snoopy got hit by the ball.\n");
+            sleep(2);
+        }
+
+        // Check if the ball hits the walls and change direction if necessary
+        if (ballX == 0 || ballX == colonnes - 1) {
+            ballDirectionX = -ballDirectionX;
+        }
+        if (ballY == 0 || ballY == lignes - 1) {
+            ballDirectionY = -ballDirectionY;
+        }
+    }
+
+// Add the ball to the grid
+    plateau[ballY][ballX] = 7;
 
     int temps = 30;
     for (int i = 0; i < lignes; i++) {
