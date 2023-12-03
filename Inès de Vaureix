@@ -1,5 +1,5 @@
 #include "N2.h"
-void N2(){
+void N2(){ 
     int menu;
     int lignes = 12;   
     int colonnes = 22;    
