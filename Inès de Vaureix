@@ -3,7 +3,7 @@ void N2(){
     int menu;  
     int lignes = 12;    
     int colonnes = 22;     
-    int plateau[12][22];  
+    int plateau[12][22];   
     int oiseau = 9;  
     int PersoX = 10;       
     int PersoY = 6;   
