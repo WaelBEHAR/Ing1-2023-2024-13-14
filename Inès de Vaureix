@@ -5,7 +5,7 @@ void N2(){
     int colonnes = 22;  
     int plateau[12][22]; 
     int oiseau = 9;  
-    int PersoX = 10;  
+    int PersoX = 10;   
     int PersoY = 6;  
     int oiseauX1 = 1, oiseauY1 = 1;  
     int oiseauX2 = 20, oiseauY2 = 1; 
